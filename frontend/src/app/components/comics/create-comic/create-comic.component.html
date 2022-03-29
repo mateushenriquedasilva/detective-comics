@@ -1,0 +1,62 @@
+<mat-card class="create-comic">
+  <mat-card-title>
+    Criar um novo Quadrinho
+    <mat-icon class="middle">add</mat-icon></mat-card-title
+  >
+  <form class="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Nome"
+        name="nome"
+        [(ngModel)]="comic.name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Autor</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Autor"
+        name="autor"
+        [(ngModel)]="comic.author"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Data da publicação</mat-label>
+      <input
+        type="date"
+        required
+        matInput
+        placeholder="Data da publicação"
+        name="data_da_publicacao"
+        [(ngModel)]="comic.date_of_publication"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Url da Imagem</mat-label>
+      <input
+        matInput
+        placeholder="Url da Imagem"
+        required
+        name="url_da_imagem"
+        [(ngModel)]="comic.url_image"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      type="submit"
+      class="button-primary"
+      (click)="createComic()"
+    >
+      Adicionar um novo Quadrinho
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+  </form>
+</mat-card>

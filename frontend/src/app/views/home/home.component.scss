@@ -1,0 +1,16 @@
+.card-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem auto;
+
+  max-width: 400px;
+
+  .logo {
+      max-width: 200px;
+  }
+
+  .image {
+    max-width: 400px;
+  }
+}

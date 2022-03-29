@@ -1,0 +1,15 @@
+.create-comic {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+
+  margin: 1rem auto;
+
+  max-width: 700px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

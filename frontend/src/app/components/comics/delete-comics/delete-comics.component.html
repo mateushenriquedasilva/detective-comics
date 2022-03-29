@@ -1,0 +1,52 @@
+<mat-card class="delete-comic">
+  <mat-card-title>
+    Apagar Quadrinho
+    <mat-icon class="middle">delete</mat-icon>
+  </mat-card-title>
+  <form class="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" [(ngModel)]="comic.name" name="nome" disabled/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Autor</mat-label>
+      <input
+        matInput
+        placeholder="Autor"
+        [(ngModel)]="comic.author"
+        name="autor"
+        disabled
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Data da publicação</mat-label>
+      <input
+        type="date"
+        matInput
+        placeholder="Data da publicação"
+        [(ngModel)]="comic.date_of_publication"
+        name="data_da_publicacao"
+        disabled
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Url da Imagem</mat-label>
+      <input
+        matInput
+        placeholder="Url da Imagem"
+        [(ngModel)]="comic.url_image"
+        name="url_da_imagem"
+        disabled
+      />
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button color="warn" (click)="deleteComic()">
+    Apagar Quadrinho
+    <mat-icon class="middle">delete</mat-icon>
+  </button>
+
+  <button mat-raised-button class="button-primary" (click)="cancel()">
+    Cancelar
+  </button>
+</mat-card>

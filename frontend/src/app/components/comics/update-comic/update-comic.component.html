@@ -1,0 +1,60 @@
+<mat-card class="update-comic">
+  <mat-card-title>
+    Atualizar Quadrinho
+    <mat-icon class="middle">update</mat-icon></mat-card-title
+  >
+  <form class="form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Nome"
+        [(ngModel)]="comic.name"
+        name="nome"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Autor</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Autor"
+        [(ngModel)]="comic.author"
+        name="autor"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Data da publicação</mat-label>
+      <input
+        type="date"
+        matInput
+        required
+        placeholder="Data da publicação"
+        [(ngModel)]="comic.date_of_publication"
+        name="data_da_publicacao"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Url da Imagem</mat-label>
+      <input
+        matInput
+        required
+        placeholder="Url da Imagem"
+        [(ngModel)]="comic.url_image"
+        name="url_da_imagem"
+      />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      class="button-primary"
+      (click)="updateComic()"
+    >
+      Atualizar Quadrinho
+      <mat-icon>update</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+  </form>
+</mat-card>

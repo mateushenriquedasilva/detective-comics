@@ -1,0 +1,44 @@
+.comics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 2rem;
+
+    .action {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .card-comics {
+        width: 300px;
+        line-height: 1.7rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            flex: 1;
+        }
+
+        .action {   
+            flex: .1;
+            a {
+                color: #333;
+            }
+        }
+        
+        .subtitle {
+            flex: 1;
+            p {
+                margin-bottom: 0;
+                flex: 1;
+            }   
+        }
+        
+        .image {
+            width: 200px;
+            margin: .1rem auto;
+            flex: 2;
+        }
+    }
+}

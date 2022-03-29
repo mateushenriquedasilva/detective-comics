@@ -1,0 +1,29 @@
+<main class="comics">
+  <mat-card class="card-comics mat-elevation-z4" *ngFor="let comic of comics">
+    <mat-card-title class="title">
+      {{ comic.name }}
+    </mat-card-title>
+    <div class="action">
+      <a routerLink="/update_comic/{{comic.id}}">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a routerLink="/delete_comic/{{comic.id}}">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </div>
+    <mat-card-subtitle class="subtitle">
+      <p>Autor: {{ comic.author }}</p>
+      <p>
+        Data da Publicação: {{ comic.date_of_publication | date: "dd/MM/yyyy" }}
+      </p>
+    </mat-card-subtitle>
+    <div class="picture">
+      <img
+        class="image"
+        mat-card-image
+        src="{{ comic.url_image }}"
+        alt="Foto do quadrinho"
+      />
+    </div>
+  </mat-card>
+</main>
