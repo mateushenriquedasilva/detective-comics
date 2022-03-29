@@ -2,6 +2,10 @@
 
 __Serviço de gerenciamento de quadrinhos feito com Angular, Node, Express e SQL(MariaDB)📦__
 
+<div>
+  <img src="./imgs/detective_comics.gif" />
+</div>
+
 #### **Tecnologias utilizadas 🛠️**
 
 - Front-end 🏠
