@@ -2,6 +2,8 @@
 
 __Serviço de gerenciamento de quadrinhos feito com Angular, Node, Express e SQL(MariaDB)📦__
 
+<a href="https://youtu.be/_wNw2O1UCDA">Detective Comics - Vídeo de demonstração</a>
+
 <div>
   <img src="./imgs/detective_comics.gif" />
 </div>
