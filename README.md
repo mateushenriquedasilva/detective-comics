@@ -72,7 +72,6 @@ npm start
 ---
 **Portas utilizadas no projeto🚪**
 * Front-end: 4200
-* Back-end: 3000
 
 ---
 #### **Projeto desenvolvido por [Matheus Henrique da Silva]("https://www.instagram.com/themateusreal/")🚀👨‍🚀👨🏿‍💻**
