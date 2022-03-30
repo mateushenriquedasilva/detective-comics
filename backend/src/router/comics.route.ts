@@ -1,4 +1,5 @@
 import { Router, Response, Request } from "express";
+import { validationResult, body } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import comicsRepository from "../repositories/comics.repository";
 const comicsRouter = Router();
@@ -35,34 +36,66 @@ comicsRouter.get("/comics/:id", async (req: Request, res: Response) => {
 });
 
 // create comic
-comicsRouter.post("/comics/", async (req: Request, res: Response) => {
-  try {
-    const comic = req.body;
-    const addComic = await comicsRepository.createComic(comic);
+comicsRouter.post(
+  "/comics/",
+  [
+    body("name").notEmpty().withMessage("Você precisa preencher esse campo"),
+    body("author").notEmpty().withMessage("Você precisa preencher esse campo"),
+    body("date_of_publication").notEmpty().withMessage("Você precisa preencher esse campo"),
+    body("url_image").notEmpty().withMessage("Você precisa preencher esse campo"),
+  ],
+  async (req: Request, res: Response) => {
+    try {
+      const erros = validationResult(req);
+      if (!erros.isEmpty()) {
+        return res
+          .status(StatusCodes.BAD_REQUEST)
+          .json({ error: erros.array() });
+      }
 
-    res.status(StatusCodes.CREATED).send({
-      msg: "Successfully created✅",
-      comic: [comic],
-    });
-  } catch {
-    throw new Error();
+      const comic = req.body;
+      const addComic = await comicsRepository.createComic(comic);
+
+      res.status(StatusCodes.CREATED).send({
+        msg: "Successfully created✅",
+        comic: [comic],
+      });
+    } catch {
+      throw new Error();
+    }
   }
-});
+);
 
 // update comic
-comicsRouter.put("/comics/:id", async (req: Request, res: Response) => {
-  try {
-    const id = req.params.id;
-    const comic = req.body;
-    const updateComic = comicsRepository.updateComic(id, comic);
+comicsRouter.put(
+  "/comics/:id",
+  [
+    body("name").notEmpty(),
+    body("author").notEmpty(),
+    body("date_of_publication").notEmpty(),
+    body("url_image").notEmpty(),
+  ],
+  async (req: Request, res: Response) => {
+    try {
+      const erros = validationResult(req);
+      if (!erros.isEmpty()) {
+        return res
+          .status(StatusCodes.BAD_REQUEST)
+          .json({ error: erros.array() });
+      }
+      
+      const id = req.params.id;
+      const comic = req.body;
+      const updateComic = comicsRepository.updateComic(id, comic);
 
-    res.status(StatusCodes.CREATED).send({
-      msg: "Successfully updated📝",
-    });
-  } catch {
-    throw new Error();
+      res.status(StatusCodes.CREATED).send({
+        msg: "Successfully updated📝",
+      });
+    } catch {
+      throw new Error();
+    }
   }
-});
+);
 
 // delete comic
 comicsRouter.delete("/comics/:id", async (req: Request, res: Response) => {
