@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // views
 import { HomeComponent } from './home/home.component';
@@ -24,6 +25,7 @@ import { ComicsModule } from '../components/comics/comics.module';
     MatCardModule,
     MatButtonModule,
     ComicsModule,
+    RouterModule
   ],
   exports: [HomeComponent, ComicsComponent, Error404Component],
 })
