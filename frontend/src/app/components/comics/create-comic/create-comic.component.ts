@@ -8,7 +8,7 @@ import { ComicsService } from '../comics.service';
   templateUrl: './create-comic.component.html',
   styleUrls: ['./create-comic.component.scss'],
 })
-export class CreateComicComponent implements OnInit {
+export class CreateComicComponent  {
   comic: Comic = {
     name: '',
     author: '',
@@ -17,8 +17,6 @@ export class CreateComicComponent implements OnInit {
   };
 
   constructor(private router: Router, private comicsService: ComicsService) {}
-
-  ngOnInit(): void {}
 
   // create comic
   createComic(): void {

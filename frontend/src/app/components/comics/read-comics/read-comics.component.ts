@@ -7,7 +7,7 @@ import { ComicsService } from '../comics.service';
   templateUrl: './read-comics.component.html',
   styleUrls: ['./read-comics.component.scss'],
 })
-export class ReadComicsComponent implements OnInit {
+export class ReadComicsComponent implements OnInit{
   comics: Comic[] = [
     {
       name: '',
@@ -17,11 +17,16 @@ export class ReadComicsComponent implements OnInit {
     },
   ];
 
+  destroyComponent: boolean = true;
+
   constructor(private comicService: ComicsService) {}
 
   ngOnInit(): void {
     this.comicService.findAllComics().subscribe((comics) => {
       this.comics = comics;
+      comics.length === 0
+        ? (this.destroyComponent = true)
+        : (this.destroyComponent = false);
     });
   }
 }
