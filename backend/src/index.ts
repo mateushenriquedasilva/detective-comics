@@ -1,6 +1,6 @@
 import express from "express";
 import comicsRouter from "./router/comics.route";
-import poll from "./database/mariadb";
+import pool from "./models/pool";
 
 const cors = require("cors");
 const app = express();
@@ -19,6 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(comicsRouter);
 
 app.listen(PORT, () => {
-  console.log(`Connections: ${poll.activeConnections()}`);
+  console.log(`Connections: ${pool.activeConnections()}`);
   console.log(`Server running on Port ${PORT}🛵...`);
 });

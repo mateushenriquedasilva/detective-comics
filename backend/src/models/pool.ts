@@ -3,12 +3,12 @@ import mariadb from "mariadb";
 
 dotenv.config();
 
-const poll = mariadb.createPool({
+const pool = mariadb.createPool({
   host: "localhost",
   database: "detective_comics",
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
-  port: 3306,
+  port: 3300,
 });
 
-export default poll;
+export default pool;

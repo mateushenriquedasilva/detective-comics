@@ -35,9 +35,23 @@ Antes de rodar o projeto, é preciso criar um banco de dados chamado **detective
 O SGBD utilizado para esse projeto foi o **MariaDB**
 
 #### *Código*
-Em ```./backend/src/database/db.sql``` contem os comandos SQL, para criação do banco e da tabela.
+```sql
+# 1
+create database detective_comics;
+# 2
+use detective_comics;
 
-Em ```./backend/src/database/mariadb.ts``` é preciso configura o **user** e **password** do seu usuário.
+# 3
+create table comics (
+	id int unsigned not null auto_increment,
+    name varchar(100) not null,
+    author varchar(100) not null,
+    date_of_publication varchar(10) not null,
+    url_image varchar(100) not null,
+    primary key (id)
+);
+```
+Em ```./backend/src/models/pool.ts``` é preciso configura o **user** e **password** do seu usuário.
 *Recomendado utilizar variáveis de Ambiente*
 
 ---

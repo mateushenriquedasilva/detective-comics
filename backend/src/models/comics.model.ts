@@ -1,7 +1,7 @@
-import poll from "../database/mariadb";
-import Comic from "../models/comic.model";
+import poll from "./pool";
+import Comic from "../@types/comic.model";
 
-class ComicsRepository {
+class comicsModel {
   // find all comics
   async findAllComics(): Promise<Comic[]> {
     try {
@@ -76,4 +76,4 @@ class ComicsRepository {
   }
 }
 
-export default new ComicsRepository();
+export default new comicsModel();
