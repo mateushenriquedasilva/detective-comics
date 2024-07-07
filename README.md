@@ -55,35 +55,6 @@ Em ```./backend/src/models/pool.ts``` é preciso configura o **user** e **passwo
 *Recomendado utilizar variáveis de Ambiente*
 
 ---
-### **Instalação de dependências📦**
-
-```bash
-# Entra na pasta do projeto
-$ cd detective-comics-main
-
-# Entra na pasta do backend
-$ cd backend
-
-# Instalar todos os pacotes necessários
-$ npm install
-
-# Rodar o projeto
-npm start
-
-# -- Em outro terminal ⚠️ --
-
-# Entra na pasta do fronend
-$ cd fronend
-
-# Instalar todos os pacotes necessários
-$ npm install
-
-# Rodar o projeto
-npm start
-
-```
-
----
 **Portas utilizadas no projeto🚪**
 * Front-end: 4200
 
