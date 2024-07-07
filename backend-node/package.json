@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node ./",
     "build": "tsc -p .",
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts"
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
+    "docker-config": "docker build -t mariadb-detective-comics .",
+    "docker-run": "docker run -d -p 3306:3306 --name detective_comics_db mariadb-detective-comics"
   },
   "keywords": [
     "node",

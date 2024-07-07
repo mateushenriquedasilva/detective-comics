@@ -1,5 +1,7 @@
 # Detective Comics 📜
 
+## ⚠ Uma nova versão do backend foi feita em Java Spring Boot! Caso queira executar o front end com a versão do backend em Node.js, é necessário alterar os endpoints no serviço. ⚠
+
 __Serviço de gerenciamento de quadrinhos feito com Angular, Node, Express e SQL(MariaDB)📦__
 
 <a href="https://youtu.be/_wNw2O1UCDA">Detective Comics - Vídeo de demonstração</a>
@@ -15,12 +17,9 @@ __Serviço de gerenciamento de quadrinhos feito com Angular, Node, Express e SQL
   * Angular Material
   * SCSS
 - Back-end 💾
-  * NodeJS
-  * Express
-  * Express Validator
-  * SQL
-  * MariaDB
-  * TypeScript
+  * NodeJS e Java Spring
+- Banco de Dados
+  * MariaDB e Postgres
 
 ---
 ### **Documentação 📝**
@@ -30,27 +29,28 @@ Infelizmente não encontrei nenhum serviço para hospedar o banco de dados gratu
 ---
 ### **Criação do banco de dados e configuração📦**
 
-Antes de rodar o projeto, é preciso criar um banco de dados chamado **detective_comics** e uma tabela chamada **comics**.
+Para configurar o banco de dados, vamos utilizar o Docker! Você pode instalar o Docker no site oficial
+e seguir a documentação para instalá-lo em sua máquina.
+
+Edite o arquivo Dockerfile para inserir seu usuário e senha..
 
 O SGBD utilizado para esse projeto foi o **MariaDB**
 
-#### *Código*
-```sql
-# 1
-create database detective_comics;
-# 2
-use detective_comics;
+Com o docker instalado, baixar rodar o seguinte comando:
 
-# 3
-create table comics (
-	id int unsigned not null auto_increment,
-    name varchar(100) not null,
-    author varchar(100) not null,
-    date_of_publication varchar(10) not null,
-    url_image varchar(100) not null,
-    primary key (id)
-);
+#### *Código*
+```bash
+npm run docker-config
+npm run docker-run
 ```
+
+Caso esteja executando o backend com Java, use os seguintes comandos:
+
+```bash
+docker build -t detective-comics-postgres .
+docker run -d -p 3306:3306 --name detective_comics_db detective-comics-postgres
+```
+
 Em ```./backend/src/models/pool.ts``` é preciso configura o **user** e **password** do seu usuário.
 *Recomendado utilizar variáveis de Ambiente*
 

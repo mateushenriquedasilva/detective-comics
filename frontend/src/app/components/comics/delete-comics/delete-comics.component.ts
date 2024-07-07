@@ -27,10 +27,10 @@ export class DeleteComicsComponent implements OnInit {
     if (id) {
       this.comicService.findComicById(id).subscribe((comic) => {
         this.comic = {
-          name: comic[0].name,
-          author: comic[0].author,
-          date_of_publication: comic[0].date_of_publication,
-          url_image: comic[0].url_image,
+          name: comic.name,
+          author: comic.author,
+          date_of_publication: comic.date_of_publication,
+          url_image: comic.url_image,
         };
       });
     }

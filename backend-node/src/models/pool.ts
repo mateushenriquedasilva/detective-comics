@@ -8,7 +8,7 @@ const pool = mariadb.createPool({
   database: "detective_comics",
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
-  port: 3300,
+  port: 3306,
 });
 
 export default pool;

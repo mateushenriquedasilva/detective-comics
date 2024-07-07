@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root',
 })
 export class ComicsService {
-  baseURL: string = `http://localhost:3000/comics`;
+  baseURL: string = `http://localhost:8080/comics`;
 
   constructor(private http: HttpClient, private matSnackBar: MatSnackBar) {}
 
@@ -29,15 +29,15 @@ export class ComicsService {
 
   // find all comics
   findAllComics(): Observable<Comic[]> {
-    return this.http.get<Comic[]>(this.baseURL).pipe(
+    return this.http.get<Comic[]>(`${this.baseURL}/all`).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   // find comic by id
-  findComicById(id: string): Observable<Comic[]> {
-    const url = `${this.baseURL}/${id}`;
+  findComicById(id: string): Observable<Comic> {
+    const url = `${this.baseURL}/all/${id}`;
     return this.http.get<Comic[]>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -46,7 +46,7 @@ export class ComicsService {
 
   // create comic
   createComic(comics: Comic): Observable<Comic> {
-    return this.http.post<Comic>(this.baseURL, comics).pipe(
+    return this.http.post<Comic>(`${this.baseURL}/createComics`, comics).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
@@ -54,7 +54,8 @@ export class ComicsService {
 
   // update comic
   updateComic(id: string, comic: Comic): Observable<Comic> {
-    const url = `${this.baseURL}/${id}`;
+    comic.id = Number(id);
+    const url = `${this.baseURL}/updateComics`;
     return this.http.put<Comic>(url, comic).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -63,7 +64,7 @@ export class ComicsService {
 
   // delete comic
   deleteComic(id: string): Observable<Comic> {
-    const url = `${this.baseURL}/${id}`;
+    const url = `${this.baseURL}/deleteComics/${id}`; 
     return this.http.delete<Comic>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

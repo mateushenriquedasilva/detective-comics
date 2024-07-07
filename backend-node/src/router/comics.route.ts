@@ -14,7 +14,7 @@ comicsRouter.get("/", (req: Request, res: Response) => {
   res
     .status(StatusCodes.OK)
     .send(
-      `<h2>Detective Comics🦇</h2> <a href='http://localhost:${process.env.PORT}/comics'>/comics</a>`
+      `<h2>Detective Comics🦇</h2> <a href='http://localhost:3000/comics'>/comics</a>`
     );
 });
 
